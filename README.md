@@ -2,8 +2,11 @@
 Repo used to learn love2d
 
 ## Games made
-- [ ] Pong
+- [x] Pong
 - [ ] Flappy Bird
 - [ ] Space Invaders
-- [ ] breakout 
+- [ ] Arkanoid
 - [ ] Tanks
+- [x] Snake
+- [ ] Tetris
+- [ ] Conway's game of life

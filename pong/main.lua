@@ -58,8 +58,9 @@ function love.update(dt)
     -- score checking and resetting ball location
     if(ball.x < 0) then
         ai.points = ai.points + 1
-        ball.x, ball.y = love.graphics.getWidth()/2, love.graphics.getHeight()/2 -- variables for the ball entity location 
-        ball.vx = if math.random() > 0.5 then 5 else -5 end
+        -- variables for the ball entity location
+        ball.x, ball.y = love.graphics.getWidth()/2, love.graphics.getHeight()/2  
+        ball.vx = if (math.random() > 0.5) then (5) else (-5) end
         ball.vy = math.random(-5,5)
     elseif(ball.x > love.graphics.getWidth()) then
         user.points = user.points + 1
