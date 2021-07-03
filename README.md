@@ -9,4 +9,4 @@ Repo used to learn love2d
 - [ ] Tanks
 - [x] Snake
 - [ ] Tetris
-- [ ] Conway's game of life
+- [x] Conway's game of life
