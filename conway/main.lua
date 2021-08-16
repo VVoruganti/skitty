@@ -21,7 +21,7 @@ function love.load()
     State = "Load"
 end
 
-function sumNeighbors(x,y)
+local function sumNeighbors(x,y)
     local sum = 0
     for i = x - 1, x + 1 do
         for j = y - 1, y + 1 do
@@ -43,7 +43,7 @@ function love.mousepressed(x, y, button, istouch, presses)
 end
 
 
-function conway()
+local function conway()
     local nodes = 0
     for i = 1, Grid_Settings.x do
         for j = 1, Grid_Settings.y do

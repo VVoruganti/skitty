@@ -6,7 +6,9 @@ Repo used to learn love2d
 - [ ] Flappy Bird
 - [ ] Space Invaders
 - [ ] Arkanoid
-- [ ] Tanks
 - [x] Snake
 - [ ] Tetris
 - [x] Conway's game of life
+
+
+## Multiplayer TinyTanks
