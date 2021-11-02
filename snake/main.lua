@@ -1,83 +1,85 @@
 -- main components for a snake game
--- randomly generated score cubes blue
--- array of objects each with a position value
+-- randomlY generated score cubes blue
+-- arraY of objects each with a position value
 -- each object moves to the location of the previous
 -- control movement of head
 -- If head touches tail lose
 -- if head touches sides lose
 function love.load() -- initial function that loads initializiation code
-  nodes = {{x=30,y=0},{x=15,y=0},{x=0,y=0}} -- initializes snake with 3 nodes on it
-  obstacle = {x=45,y=45} -- initializes obstacle
-  width, height, flags  = love.window.getMode()
-  print(width)
-  print(height)
-  -- variables to use for moving the snake-- 
-  x = 15 -- controls the horizontal movement default to moving right
-  y = 0 -- controls the vertical movement defaults to not moving vertically
+  Nodes = {{X=30,Y=0},{X=15,Y=0},{X=0,Y=0}} -- initializes snake with 3 Nodes on it
+  Obstacle = {X=45,Y=45} -- initializes Obstacle
+  Width, Height, Flags  = love.window.getMode()
+  -- variables to use for moving the snake--
+  X = 15 -- controls the horizontal movement default to moving right
+  Y = 0 -- controls the vertical movement defaults to not moving verticallY
 
-  dead = false
+  Dead = false
 end
 
 function love.update(dt)
+  -- Slows down the update by making sure
+  -- there is atleast a second befor next Calculation of update
   if dt < 1/15 then
-    love.timer.sleep(1/15 - dt)
+    love.timer.sleep(1/15 - dt) -- calls the sleep to pause execution
   end
 
-  for i = #nodes, 2, -1 do
-    if (nodes[i].x == nodes[1].x and nodes[i].y == nodes[1].y) then
-      dead = true
+  -- Check if game over conditions have been met
+  for i = #Nodes, 2, -1 do
+    if (Nodes[i].X == Nodes[1].X and Nodes[i].Y == Nodes[1].Y) then
+      Dead = true
     end
   end
 
-  if nodes[1].x > 800 or nodes[1].x < 0 or nodes[1].y < 0 or nodes[1].y > 600 then
-    dead = true
+  if Nodes[1].X > 800 or Nodes[1].X < 0 or Nodes[1].Y < 0 or Nodes[1].Y > 600 then
+    Dead = true
   end
 
-if(not dead) then
+if(not Dead) then
   if love.keyboard.isDown("right") then
-    x = 15
-    y = 0
+    X = 15
+    Y = 0
   elseif love.keyboard.isDown("left") then
-    x = -15 
-    y = 0
+    X = -15
+    Y = 0
   end
 
   if love.keyboard.isDown("up") then
-    y = -15
-    x = 0
+    Y = -15
+    X = 0
   elseif love.keyboard.isDown("down") then
-    y = 15
-    x = 0
+    Y = 15
+    X = 0
   end
 else
-  x = 0
-  y = 0
+  X = 0
+  Y = 0
 end
 
-  if nodes[1].x == obstacle.x and nodes[1].y == obstacle.y then
-    nodes[#nodes+1] = {x=0,y=0}
-    obstacle.x = math.random(2,20) * 15 
-    obstacle.y = math.random(2,20) * 15
+  if Nodes[1].X == Obstacle.X and Nodes[1].Y == Obstacle.Y then
+    Nodes[#Nodes+1] = {X=0,Y=0}
+    Obstacle.X = math.random(2,20) * 15
+    Obstacle.Y = math.random(2,20) * 15
   end
 
-  for i = #nodes, 2, -1 do
-    nodes[i].x = nodes[i-1].x
-    nodes[i].y = nodes[i-1].y
+  for i = #Nodes, 2, -1 do
+    Nodes[i].X = Nodes[i-1].X
+    Nodes[i].Y = Nodes[i-1].Y
   end
-  nodes[1].x = nodes[1].x + x
-  nodes[1].y = nodes[1].y + y
+  Nodes[1].X = Nodes[1].X + X
+  Nodes[1].Y = Nodes[1].Y + Y
 end
 
 function love.draw()
     love.graphics.setColor(0,0,255)
-    love.graphics.rectangle("fill",nodes[1]["x"],nodes[1]["y"],15,15)
+    love.graphics.rectangle("fill",Nodes[1]["X"],Nodes[1]["Y"],15,15)
     love.graphics.setColor(255,0,0)
-    for i = #nodes , 2, -1 do
-      love.graphics.rectangle("fill", nodes[i].x,nodes[i].y,15,15)
+    for i = #Nodes , 2, -1 do
+      love.graphics.rectangle("fill", Nodes[i].X,Nodes[i].Y,15,15)
     end
     love.graphics.setColor(0,255,0)
-    love.graphics.rectangle("fill", obstacle["x"],obstacle["y"],15,15)
-    if(dead) then
+    love.graphics.rectangle("fill", Obstacle["X"],Obstacle["Y"],15,15)
+    -- Print Kill Screen if Game Over
+    if(Dead) then
       love.graphics.print("Dead",400,300)
     end
 end
