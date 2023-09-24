@@ -4,7 +4,7 @@ implemented in the Love2D framework in an attempt to learn and the framework
 and Lua.
 
 ## Games made
-- [x] Pong
+- [ ] Pong
 - [ ] Flappy Bird
 - [ ] Space Invaders
 - [ ] Arkanoid

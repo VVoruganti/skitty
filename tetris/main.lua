@@ -2,15 +2,16 @@
 -- Implementation of Tetris in Love2D
 ]] --
 
-WINDOW_WIDTH = 500
-WINDOW_HEIGHT = 500
+WINDOW_WIDTH = 400
+WINDOW_HEIGHT = 600
 
 function love.load()
   love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT)
-  Grid_Settings = { x = 10, 100 }
+  Grid_Settings = { x = 10, y = 15 }
   Grid = {}
+  Stack = {}
   Stepx = WINDOW_WIDTH / Grid_Settings.x
-  Stepy = WINDOW_WIDTH / Grid_Settings.y
+  Stepy = WINDOW_HEIGHT / Grid_Settings.y
   -- initialize Grid as a matrix
   for i = 1, Grid_Settings.x do
     Grid[i] = {}
@@ -24,7 +25,10 @@ end
 function love.update(dt)
   if State == "Load" and love.keyboard.isDown("return") then
     State = "Play"
+  else
+
   end
+
 end
 
 function love.draw()
