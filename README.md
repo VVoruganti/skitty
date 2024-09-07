@@ -1,4 +1,12 @@
-# Skitty
+<!-- [![Skitty](https://img.pokemondb.net/sprites/black-white/normal/skitty.png)](https://pokemondb.net/pokedex/skitty)
+# Skitty -->
+<h1>
+  <a href="https://pokemondb.net/pokedex/skitty">
+    <img src="https://img.pokemondb.net/sprites/black-white/normal/skitty.png" alt="Skitty" style="vertical-align: middle;">
+  </a>
+  <span style="vertical-align: middle;">Skitty</span>
+</h1>
+
 Repo used to learn love2d. A Series of classic games and programs
 implemented in the Love2D framework in an attempt to learn and the framework
 and Lua.
